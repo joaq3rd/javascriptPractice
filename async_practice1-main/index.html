@@ -1,0 +1,73 @@
+<!--SOURCE: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing
+    1. What is the primary difference between synchronous and asynchronous programming in JavaScript?
+        Answer: Asynchronous is a multi-thread operations, meaning multiple operations or programs can run simultaneously while Synchronous will run one operation at a time.
+    2. Why is this useful?
+        Answer: Asynchronous makes it possible to run programs without freezing the program during
+    3. What problems does it solve?
+
+
+SECTION 1. INTRODUCING ASYNCHRONOUS JAVASCRIPT
+    Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. 
+    Once that task has finished, your program is presented with the results.
+
+    Many functions provided by browsers, especially the most interesting ones, can potentially take a long time, and therefore, are asynchronous.
+    For Example:
+        - Making HTTP requests using fetch()
+        - Accessing a user's camera or microphone using getUserMedia()
+        - Asking a user to select files using showOpenFilePicker()
+
+    So even though you may not have to implement your own asynchronous functions very often, you are very likely to need to use them correctly.
+
+SECTION 2. SYNCHRONOUS PROGRAMMING
+
+
+    const name = 'Miriam';
+    const greeting = `Hello, my name is ${name}!`;
+    console.log(greeting);
+    //"Hello, my name is Miriam!"
+
+
+    ^this code
+    1. Declares a string called name
+    2. Declares another string called greeting, which uses name
+    3. Outputs the greeting to the JavaScript console.
+
+    The browswer effectively steps through the program one line at a time, in the order we wrote it. 
+    Each line, the browser waits for the line to finish its work before going to the next line. 
+    Each line depends on the preceding line to proceed.
+
+    That makes this a synchronous program. It would still be synchronous even if we called a separate function, likethis
+    
+
+    function makeGreeting(name) {
+        return `Hello, my name is ${name}!`;
+    }
+
+    const name = 'Miriam';
+    const greeting = makeGreeting(name);
+    console.log(greeting);
+    // "Hello, my name is Miriam!"
+
+
+    makeGreeting() is a synchronous function because the caller has to wait for the function to finish its work and return a value before the caller can continue
+
+SECTION 3. A LONG-RUNNING SYNCHRONOUS FUNCTION
+    The basic problem with long-running synchronous functions.
+    
+    We need the following from our program:
+        1. Start a long-running operation by calling a function.
+        2. Have that function start the operation and return immediately, so that our program can still be responsive to other events.
+        3. Notify us with the result of the operation when it eventually completes.\
+
+    ^This is what ASYNCHRONOUS can do.
+
+SECTION 4. EVENT HANDLERS
+    Event handlers are a form of asynchronous programming: 
+        you provide a function that will be called when the event happens (onMouseClicked, onKeyClick, etc.)
+    
+    The XMLHttpRequest API enables you to make HTTP requests to a remote server using JavaScript.
+        Attaching an Event Listener to the XMLHttpRequest object notifies about the progress and eventual completion of a request.
+
+    The following example shows this in action.
+    
+-->
